@@ -1,7 +1,7 @@
 # Query_Debugging
 
 Question 1:
-The error occurred when the group function was used because a group by function is not allowed so you need a sub query. Using a group by function gives you an error because ---
+The error occurred when the group function was used because you did not include name as one of the columns that you want to selecte.
 
 Question 2:
 The error occurred because you have to use a bridge table. They bridge table is needed because boohbah_id and stand_id have no connections. This means you cannot set them equal to each other.
@@ -22,9 +22,10 @@ Question 7:
 The error occurred because there was a cartesian join. There is not join so it shows all the data at once.
 
 Question 8:
-The error occurred when the group function was used because a group by function is not allowed so you need a sub query. Using a group by function gives you an error because --
+The error occurred when you ran the average function because you have to do a subquey that selects just the average.
 
 Question 9:
-The error occurred because the order switch selected columns in sub query. -- why is this is and error
+The error occurred because the order switch selected columns in sub query. They will not check in the same order that the valuse were sub queried.
 
 Question 10:
+The error occurred when you tried to merge the boohbah table and the jojo_stand table using their ID. You cannot merge them because the ID's have no coralation. 
