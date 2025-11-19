@@ -13,9 +13,9 @@ select * from jojo_stand;
 select * from boohbah_stand_link;
 
 SELECT b.name, s.stand_name
-FROM boohbah b, jojo_stand s, boohbah_stand_link l 
-where l.boohbah_id = b.boohbah_id
-and l.stand_id = s.stand_id;
+FROM boohbah b 
+join boohbah_stand_link l on l.boohbah_id = b.boohbah_id
+join jojo_stand s on l.stand_id = s.stand_id;
 
 -- Q3
 select * from boohbah;
@@ -30,8 +30,7 @@ select * from boohbah_stand_link;
 
 SELECT b.boohbah_id, l.stand_id
 FROM boohbah b
-JOIN boohbah_stand_link l
-ON b.boohbah_id = l.boohbah_id
+JOIN boohbah_stand_link l ON b.boohbah_id = l.boohbah_id
 WHERE b.boohbah_id = 2;
 
 -- Q5
@@ -46,19 +45,20 @@ select * from boohbah;
 
 SELECT name
 FROM boohbah
-WHERE energy_level > (SELECT avg(power)
+WHERE energy_level > (SELECT max(power) 
                       FROM jojo_stand
                       where season = 3
-                      group by season); 
+                      group by season);  
 
 -- Q7
 select * from jojo_stand;
 select * from boohbah;
 
 SELECT b.name, s.stand_name
-FROM boohbah b, jojo_stand s, boohbah_stand_link l
-WHERE b.energy_level > 80 and l.boohbah_id = b.boohbah_id 
-and l.stand_id = s.stand_id;
+FROM boohbah b
+join  boohbah_stand_link l on l.boohbah_id = b.boohbah_id 
+join jojo_stand s on l.stand_id = s.stand_id
+WHERE b.energy_level > 80;
 
 -- Q8
 select * from boohbah_stand_link;
